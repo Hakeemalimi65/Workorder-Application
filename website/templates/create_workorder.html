@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block title %}Workorder{% endblock %} {% block content
+    %}
+    <form method="POST">
+      <h3 align="center">Create Workorder Request</h3>
+      <div class="form-group">
+        <label for="equipment">Equipment Name</label>
+        <input
+          type="text"
+          id="equipment"
+          name="equipment"
+          class="form-control"
+          placeholder="Equipment Name"
+        />
+        <label for="department">Department</label>
+        <input
+          type="text"
+          id="department"
+          name="department"
+          class="form-control"
+          placeholder="Enter Department"
+        />
+        <label for="work">Work Requested</label>
+        <input
+          type="text"
+          id="work"
+          name="work"
+          class="form-control"
+        />
+        <br />
+        <div align="center">
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
+    {% endblock %}
+    

@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block title %}Workorder{% endblock %} {% block content
+    %}
+    <h1 align="center">{% block header %}Work Orders{% endblock %}</h1>
+    <div id="posts">
+      {% for workorder in work_orders %}
+      <div class="card border-dark">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <a href="/workorders/{{workorder.user.username}}">{{workorder.user.username}}</a>
+          {% if user.id == workorder.user_id %}
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-sm btn-primary dropdown-toggle"
+              data-bs-toggle="dropdown"
+            ></button>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="/delete-workorder/{{workorder.id}}" class="dropdown-item">Delete</a>
+              </li>
+            </ul>
+          </div>
+          {% endif %}
+        </div>
+        <div class="card-body">
+          <div class="card-text">
+            <p>{{workorder.equipment_name}}</p>
+            <p>{{workorder.department}}</p>
+            <p>{{workorder.work_requested}}</p>
+        </div>
+        </div>
+        <div class="card-footer text-muted">            
+            {{workorder.date_created}}
+        </div>
+      </div>
+      <br/ > {% endfor %}
+    </div>
+    {% endblock %}
+    
